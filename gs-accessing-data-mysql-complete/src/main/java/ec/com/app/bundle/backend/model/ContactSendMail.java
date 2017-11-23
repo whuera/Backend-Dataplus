@@ -14,12 +14,13 @@ import lombok.ToString;
 @Entity
 @NoArgsConstructor
 @ToString
-
  public class  ContactSendMail {
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	@Getter @Setter private int id;
-	@Column @Getter @Setter private String names;
-	@Column @Getter @Setter private String lastNames;
-	@Column @Getter @Setter private String mailtosend;
+	@Column(length = 100) @Getter @Setter private String names;
+	@Column(length = 100) @Getter @Setter private String lastNames;
+	@Column(length = 80) @Getter @Setter private String mailtosend;
+	@Column(length = 20) @Getter @Setter private String celphone;
+	@Column(length = 255) @Getter @Setter private String observation;	
 }
