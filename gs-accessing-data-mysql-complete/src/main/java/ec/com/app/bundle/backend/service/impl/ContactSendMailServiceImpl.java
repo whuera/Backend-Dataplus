@@ -47,4 +47,8 @@ public class ContactSendMailServiceImpl implements ContactSendMailService{
 		return ContactSendMailRepository.findAll();
 	}
 
+	public ContactSendMail findById(int id) {
+		return ContactSendMailRepository.findById(id);
+	}
+
 }

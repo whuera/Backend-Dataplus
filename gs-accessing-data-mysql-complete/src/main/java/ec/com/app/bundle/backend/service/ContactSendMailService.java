@@ -31,4 +31,12 @@ public interface ContactSendMailService {
 	 * @return the list
 	 */
 	public List<ContactSendMail> findAll();
+	
+	
+/**
+ * 
+ * @param id
+ * @return
+ */
+	public ContactSendMail findById(int id);
 }
