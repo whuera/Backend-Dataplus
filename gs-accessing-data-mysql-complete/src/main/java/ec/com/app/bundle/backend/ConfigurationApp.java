@@ -11,9 +11,19 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ConfigurationApp.
+ */
 //@Configuration
 public class ConfigurationApp {
 	
+	/**
+	 * Entity manager factory.
+	 *
+	 * @param dataSource the data source
+	 * @return the entity manager factory
+	 */
 	@Bean
     @Autowired
     public EntityManagerFactory entityManagerFactory(DataSource dataSource) {
@@ -34,6 +44,12 @@ public class ConfigurationApp {
         return localContainerEntityManagerFactoryBean.getObject();
     }
     
+    /**
+     * Transaction manager.
+     *
+     * @param entityManagerFactory the entity manager factory
+     * @return the platform transaction manager
+     */
     @Bean
     @Autowired
     public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
