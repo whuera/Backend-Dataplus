@@ -2,11 +2,15 @@ package ec.com.app.bundle.backend;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +23,7 @@ import ec.com.app.bundle.backend.model.User;
 import ec.com.app.bundle.backend.repository.UserRepository;
 import ec.com.app.bundle.backend.service.ContactSendMailService;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class MainController.
  */
@@ -126,6 +130,18 @@ public class MainController {
 	public ResponseEntity<ContactSendMail> getContactById(@RequestParam int id) {
 		// This returns a JSON or XML with the users
 		ContactSendMail contact = contactSendMailService.findById(id);
+		if(contact.equals(null)){
+			return new ResponseEntity<ContactSendMail>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<ContactSendMail>(contact, HttpStatus.OK);
+
+	}
+	
+	
+	@PostMapping(value="/saveContact",  produces="application/json", consumes="application/json")
+	public ResponseEntity<ContactSendMail> saveContact(@Valid @RequestBody ContactSendMail contactSendMail) {
+		// This returns a JSON or XML with the users
+		ContactSendMail contact = contactSendMailService.saveContactSendMail(contactSendMail);
 		if(contact.equals(null)){
 			return new ResponseEntity<ContactSendMail>(HttpStatus.NO_CONTENT);
 		}

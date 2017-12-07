@@ -23,7 +23,7 @@ public interface ContactSendMailService {
 	 *
 	 * @param contactSendMail the contact send mail
 	 */
-	void saveContactSendMail (ContactSendMail contactSendMail);
+	public ContactSendMail saveContactSendMail (ContactSendMail contactSendMail);
 	
 	/**
 	 * Find all.

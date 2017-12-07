@@ -10,7 +10,7 @@ import ec.com.app.bundle.backend.repository.ContactSendMailRepository;
 import ec.com.app.bundle.backend.service.ContactSendMailService;
 
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ContactSendMailServiceImpl.
  */
@@ -34,8 +34,8 @@ public class ContactSendMailServiceImpl implements ContactSendMailService{
 	 * @see ec.com.app.bundle.backend.service.ContactSendMailService#saveContactSendMail(ec.com.app.bundle.backend.model.ContactSendMail)
 	 */
 	@Override
-	public void saveContactSendMail(ContactSendMail contactSendMail) {
-		ContactSendMailRepository.save(contactSendMail);
+	public ContactSendMail saveContactSendMail(ContactSendMail contactSendMail) {
+		return ContactSendMailRepository.save(contactSendMail);
 		
 	}
 
